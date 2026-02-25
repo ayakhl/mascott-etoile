@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Mascotte centrée</title>
+
+<style>
+html,body{
+  margin:0;
+  width:100%;
+  height:100%;
+}
+body{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#ffffff;
+}
+
+@keyframes bounce{
+  0%,100%{transform:translateY(0) rotate(-3deg)}
+  50%{transform:translateY(-20px) rotate(3deg)}
+}
+@keyframes blink{
+  0%,90%,100%{transform:scaleY(1)}
+  95%{transform:scaleY(.1)}
+}
+@keyframes wave{
+  0%,100%{transform:rotate(0deg)}
+  50%{transform:rotate(-35deg)}
+}
+</style>
+</head>
+
+<body>
+
+<svg viewBox="0 0 200 200" width="220" height="220"
+     xmlns="http://www.w3.org/2000/svg"
+     style="animation:bounce 2.5s ease-in-out infinite;
+            filter:drop-shadow(0 0 20px rgba(255,220,100,.6));">
+
+<defs>
+  <radialGradient id="g">
+    <stop offset="0%" stop-color="#FFF7A8"/>
+    <stop offset="60%" stop-color="#FFD84D"/>
+    <stop offset="100%" stop-color="#FFB830"/>
+  </radialGradient>
+</defs>
+
+<!-- ⭐ Corps -->
+<polygon fill="url(#g)"
+ points="100,20 118,70 175,70 130,105 148,160
+         100,126 52,160 70,105 25,70 82,70"/>
+
+<!-- 👒 Objet sur la tête -->
+<ellipse cx="100" cy="28" rx="34" ry="9" fill="rgba(180,150,240,.7)"/>
+<rect x="86" y="12" width="28" height="18" rx="8" fill="rgba(190,165,245,.85)"/>
+<circle cx="100" cy="10" r="6" fill="rgba(210,235,255,.95)"/>
+
+<!-- 👋 Bras -->
+<g style="transform-origin:32px 98px;animation:wave 1.5s infinite">
+  <ellipse cx="32" cy="98" rx="18" ry="11"
+   fill="url(#g)" transform="rotate(-30 32 98)"/>
+</g>
+<ellipse cx="168" cy="98" rx="18" ry="11"
+ fill="url(#g)" transform="rotate(30 168 98)"/>
+
+<!-- 👀 Yeux -->
+<ellipse cx="84" cy="94" rx="13" ry="14" fill="#fff"/>
+<g style="transform-origin:84px 98px;animation:blink 5s infinite">
+  <ellipse cx="84" cy="98" rx="7" ry="8" fill="#5a3a9a"/>
+</g>
+
+<ellipse cx="116" cy="94" rx="13" ry="14" fill="#fff"/>
+<g style="transform-origin:116px 98px;animation:blink 5s infinite .2s">
+  <ellipse cx="116" cy="98" rx="7" ry="8" fill="#5a3a9a"/>
+</g>
+
+<!-- 😊 Sourire -->
+<path d="M88 120 Q100 134 112 120"
+ stroke="#6b4bb5" stroke-width="4"
+ fill="none" stroke-linecap="round"/>
+
+</svg>
+
+</body>
+</html>
